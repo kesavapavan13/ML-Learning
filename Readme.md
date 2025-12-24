@@ -344,4 +344,90 @@ Implementing preprocessing using **functions + ColumnTransformer**:
 - Simplifies pipeline integration
 - Reflects real-world ML workflow practices
 
+# 6. 📘 Data Preprocessing – Feature Selection (Numerical Features)
+
+This notebook focuses on **selecting the most relevant numerical features** using statistical and information-theoretic methods.  
+Feature selection helps improve model performance, reduce dimensionality, and enhance interpretability.
+
+This step is performed **after**:
+- Handling missing values  
+- Outlier treatment  
+- Column transformation  
+
+---
+
+## 🔹 Objective
+
+To identify and retain important numerical features that contribute significantly to the target variable while removing redundant or less informative features.
+
+---
+
+## 🔹 Dataset Preparation
+
+- Used the cleaned and transformed dataset from the preprocessing pipeline  
+- Separated independent variables (**X**) and target variable (**y**)  
+- Considered only numerical features for selection  
+
+---
+
+## 🔹 Feature Selection Techniques Applied
+
+### 6.1 Correlation Analysis
+
+```python
+# Compute correlation matrix
+corr_matrix = df.corr()
+
+# Visualize correlations
+plt.figure(figsize=(12, 8))
+sns.heatmap(corr_matrix, cmap='coolwarm', annot=False)
+plt.title("Correlation Heatmap of Numerical Features")
+plt.show()
+
+
+from sklearn.feature_selection import VarianceThreshold
+
+# Apply Variance Threshold
+var_thresh = VarianceThreshold(threshold=0)
+X_var = var_thresh.fit_transform(X_num)
+
+# Retained features
+retained_features = X_num.columns[var_thresh.get_support()]
+retained_features
+
+from sklearn.feature_selection import mutual_info_regression
+
+# Calculate Mutual Information scores
+mi_scores = mutual_info_regression(X_num, y, random_state=42)
+
+# Create MI score DataFrame
+mi_df = pd.DataFrame({
+    'Feature': X_num.columns,
+    'MI_Score': mi_scores
+}).sort_values(by='MI_Score', ascending=False)
+
+mi_df
+
+
+## ✅ Outcome
+
+After numerical feature selection, the dataset becomes:
+
+- Optimized with informative numerical features  
+- Reduced in dimensionality  
+- Less redundant and noise-free  
+- Ready for efficient machine learning model training  
+
+---
+
+## 📌 Note
+
+Feature selection improves:
+
+- Model generalization  
+- Training efficiency  
+- Interpretability  
+
+This completes the **feature preparation stage of the preprocessing pipeline**.
+
 

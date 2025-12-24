@@ -89,7 +89,7 @@ This notebook focuses on identifying and handling missing values present in the 
 
 ---
 
-## 2️3.2 Handling Outliers
+## 3.2 Handling Outliers
 
 This notebook continues the preprocessing pipeline by focusing on identifying and handling outliers that may negatively impact model performance.
 
@@ -219,4 +219,5 @@ Using `ColumnTransformer` ensures:
 - Easy integration into machine learning pipelines
 
 This makes the preprocessing workflow **robust, reproducible, and production-ready**.
+
 

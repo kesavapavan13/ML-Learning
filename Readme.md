@@ -221,3 +221,127 @@ Using `ColumnTransformer` ensures:
 This makes the preprocessing workflow **robust, reproducible, and production-ready**.
 
 
+# 5.📘 Data Preprocessing – Column Transformation Using Functions
+
+This notebook extends the data preprocessing pipeline by implementing **column-wise feature transformations using reusable functions**.  
+It follows earlier preprocessing steps such as **missing value handling** and **outlier treatment**, ensuring a clean and structured workflow before model training.
+
+---
+
+## 🔹 Objective
+
+To design a **modular, reusable, and scalable preprocessing approach** by:
+- Separating numerical and categorical features
+- Applying appropriate transformations using functions
+- Integrating all transformations using `ColumnTransformer`
+- Producing a fully numerical, model-ready dataset
+
+---
+
+## 🔹 Dataset Preparation (Continuity)
+
+- 📂 Used the cleaned dataset obtained after:
+  - Handling missing values  
+  - Treating outliers  
+- 🔍 Inspected dataset structure, shape, and data types  
+- 🧾 Ensured only relevant features were passed for transformation  
+
+---
+
+## 🔹 Feature Categorization
+
+- **Numerical (Continuous) Features**
+  - Identified using `select_dtypes(include=np.number)`
+  - Scaled to ensure uniform feature contribution
+
+- **Categorical Features**
+  - Identified using `select_dtypes(include=object)`
+  - Encoded based on feature semantics
+
+---
+
+## 🔹 Functional Preprocessing Design ⭐
+
+To improve code maintainability and reusability, preprocessing logic was implemented using **custom functions**, including:
+- Function to identify numerical and categorical columns  
+- Function to apply scaling on numerical features  
+- Function to apply appropriate encoding on categorical features  
+- Function to construct and apply `ColumnTransformer`
+
+This approach aligns with **industry-level ML preprocessing standards**.
+
+---
+
+## 🔹 Encoding Techniques Applied
+
+Different encoding strategies were applied based on the nature of categorical features:
+
+- **Label Encoder**
+  - Used for binary or limited nominal categorical features
+
+- **Ordinal Encoder**
+  - Used for features with inherent order
+
+- **OneHotEncoder**
+  - Used for nominal categorical features
+  - `sparse_output=False` to generate dense output
+
+---
+
+## 🔹 Column Transformation
+
+- Combined all preprocessing steps using **`ColumnTransformer`**
+- Applied transformations in a single pipeline using `fit_transform()`
+- Ensured:
+  - No data leakage  
+  - Consistent preprocessing  
+
+---
+
+## 🔹 Output
+
+- Transformed data converted into a Pandas DataFrame
+- Final dataset becomes:
+  - Fully numerical  
+  - Scaled and encoded  
+  - Clean and consistent  
+  - Ready for machine learning models  
+
+---
+
+## 🔹 Libraries Used
+
+- 🐼 **Pandas** – data loading and manipulation  
+- 🔢 **NumPy** – numerical operations  
+- 🤖 **Scikit-learn**
+  - `ColumnTransformer`
+  - `StandardScaler`
+  - `LabelEncoder`
+  - `OrdinalEncoder`
+  - `OneHotEncoder`
+
+---
+
+## ✅ Outcome
+
+After completing this step, the preprocessing pipeline becomes:
+
+- Modular and reusable  
+- Production-ready  
+- Robust against data inconsistencies  
+- Suitable for:
+  - Exploratory Data Analysis (EDA)
+  - Feature Engineering
+  - Machine Learning Model Training
+
+---
+
+## 📌 Note
+
+Implementing preprocessing using **functions + ColumnTransformer**:
+- Improves code clarity
+- Enhances reusability
+- Simplifies pipeline integration
+- Reflects real-world ML workflow practices
+
+

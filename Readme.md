@@ -346,10 +346,14 @@ Implementing preprocessing using **functions + ColumnTransformer**:
 
 # 6. 📘 Data Preprocessing – Feature Selection (Numerical Features)
 
-This notebook focuses on **selecting the most relevant numerical features** using statistical and information-theoretic methods.  
-Feature selection helps improve model performance, reduce dimensionality, and enhance interpretability.
+This notebook focuses on **feature selection for numerical variables**, an essential step to identify the most relevant features that contribute to the target variable and improve machine learning model performance.
 
-This step is performed **after**:
+Feature selection helps in:
+- Reducing dimensionality  
+- Removing redundant or less informative features  
+- Improving model efficiency and interpretability  
+
+This step is performed **after completing the preprocessing pipeline**, including:
 - Handling missing values  
 - Outlier treatment  
 - Column transformation  
@@ -358,15 +362,20 @@ This step is performed **after**:
 
 ## 🔹 Objective
 
-To identify and retain important numerical features that contribute significantly to the target variable while removing redundant or less informative features.
+To identify and retain the most informative **numerical features** using statistical and information-theoretic techniques, ensuring an optimized dataset for model training.
 
 ---
 
 ## 🔹 Dataset Preparation
 
-- Used the cleaned and transformed dataset from the preprocessing pipeline  
-- Separated independent variables (**X**) and target variable (**y**)  
-- Considered only numerical features for selection  
+- 📂 Used the fully cleaned and transformed dataset obtained after:
+  - Missing value handling  
+  - Outlier treatment  
+  - Column transformation  
+- 🔍 Separated:
+  - Independent variables (**X**)  
+  - Target variable (**y**)  
+- 🧾 Considered only numerical features for feature selection  
 
 ---
 
@@ -374,40 +383,44 @@ To identify and retain important numerical features that contribute significantl
 
 ### 6.1 Correlation Analysis
 
-```python
-# Compute correlation matrix
-corr_matrix = df.corr()
+- Computed the correlation matrix for numerical features  
+- Visualized correlations using a heatmap  
+- Analyzed the strength and direction of linear relationships between features and the target variable  
 
-# Visualize correlations
-plt.figure(figsize=(12, 8))
-sns.heatmap(corr_matrix, cmap='coolwarm', annot=False)
-plt.title("Correlation Heatmap of Numerical Features")
-plt.show()
+📌 Helps in identifying:
+- Strongly related features  
+- Multicollinearity and redundant variables  
 
+---
 
-from sklearn.feature_selection import VarianceThreshold
+### 6.2 Variance Threshold (Filter Method)
 
-# Apply Variance Threshold
-var_thresh = VarianceThreshold(threshold=0)
-X_var = var_thresh.fit_transform(X_num)
+- Applied **VarianceThreshold** to identify low-variance features  
+- Removed features with zero or near-zero variance  
 
-# Retained features
-retained_features = X_num.columns[var_thresh.get_support()]
-retained_features
+📌 Observation:
+- All numerical features exhibited sufficient variance and were retained  
 
-from sklearn.feature_selection import mutual_info_regression
+---
 
-# Calculate Mutual Information scores
-mi_scores = mutual_info_regression(X_num, y, random_state=42)
+### 6.3 Mutual Information Regression
 
-# Create MI score DataFrame
-mi_df = pd.DataFrame({
-    'Feature': X_num.columns,
-    'MI_Score': mi_scores
-}).sort_values(by='MI_Score', ascending=False)
+- Computed **Mutual Information (MI)** scores between numerical features and the target variable  
+- Ranked features based on their MI scores  
 
-mi_df
+📌 Why Mutual Information?
+- Captures both **linear and non-linear relationships**  
+- More flexible and informative than correlation-based methods  
 
+---
+
+## 🔹 Output
+
+- Generated a ranked list of numerical features based on importance  
+- Identified the most informative features for model training  
+- Reduced redundancy and noise in the dataset  
+
+---
 
 ## ✅ Outcome
 
@@ -428,6 +441,6 @@ Feature selection improves:
 - Training efficiency  
 - Interpretability  
 
-This completes the **feature preparation stage of the preprocessing pipeline**.
+This completes the **feature preparation stage of the preprocessing pipeline**, making the dataset fully ready for model development.
 
-
+---

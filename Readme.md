@@ -444,3 +444,86 @@ Feature selection improves:
 This completes the **feature preparation stage of the preprocessing pipeline**, making the dataset fully ready for model development.
 
 ---
+
+# 7.📘 Feature Selection – Categorical Features
+
+This notebook focuses on **feature selection for categorical variables**, which is an important step before training machine learning models.  
+The goal is to identify categorical features that have a strong relationship with the target variable and contribute meaningfully to model performance.
+
+---
+
+## 🔹 Objective
+
+To evaluate and select the most relevant **categorical features** using statistical and information-theoretic techniques.
+
+Feature selection helps in:
+- Reducing irrelevant or redundant features  
+- Improving model efficiency  
+- Enhancing interpretability  
+
+---
+
+## 🔹 Dataset Preparation
+
+- Loaded the preprocessed dataset  
+- Separated:
+  - Independent variables (**X**)  
+  - Target variable (**y**)  
+- Considered only **categorical features** for feature selection  
+- Converted categorical features into numerical form using appropriate encoding  
+- Applied feature scaling to ensure compatibility with statistical tests  
+
+---
+
+## 🔹 Feature Selection Techniques Applied
+
+### 7.1 Chi-Square Test
+
+- Applied the **Chi-Square test** to measure statistical dependency between categorical features and the target variable  
+- Requires non-negative feature values, ensured using feature scaling  
+- Higher Chi-Square scores indicate stronger dependence  
+
+📌 Used to identify features that are significantly associated with the target variable.
+
+---
+
+### 7.2 Mutual Information
+
+- Applied **Mutual Information** to measure how much information a categorical feature provides about the target variable  
+- Captures both **linear and non-linear relationships**  
+- Does not assume independence or linearity  
+
+📌 Features with higher Mutual Information scores are more informative for prediction.
+
+---
+
+## 🔹 Output
+
+- Generated feature importance scores for categorical features  
+- Ranked features based on:
+  - Chi-Square scores  
+  - Mutual Information scores  
+- Identified the most relevant categorical features for machine learning models  
+
+---
+
+## ✅ Outcome
+
+After feature selection, the dataset contains:
+
+- Informative categorical features  
+- Reduced noise and redundancy  
+- Improved suitability for machine learning model training  
+
+---
+
+## 📌 Key Takeaways
+
+- Chi-Square test evaluates statistical dependence  
+- Mutual Information captures both linear and non-linear relationships  
+- Feature selection improves model performance and interpretability  
+
+---
+
+✨ This notebook provides a clear and effective approach to **categorical feature selection** in machine learning workflows.
+

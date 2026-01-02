@@ -111,24 +111,137 @@ This step evaluates categorical features based on their relationship with the ta
 
 ---
 
+---
+
+## 🔹 7. Image Preprocessing
+
+This notebook demonstrates essential **image preprocessing techniques** required before applying computer vision or image-based machine learning models.  
+These steps ensure images are correctly formatted, consistent, and model-ready.
+
+---
+
+### 🔹 Key Operations
+
+- **Color Space Conversion (BGR → RGB)**  
+  Ensures accurate image visualization when using OpenCV and Matplotlib.
+
+- **Image Resizing**  
+  Standardizes image dimensions and reduces computational overhead.
+
+- **Image Rotation**  
+  Adjusts image orientation and supports basic data augmentation.
+
+- **Image Cropping (Zooming)**  
+  Focuses on important regions of interest within an image.
+
+- **Drawing Shapes on Images**  
+  Highlights objects or regions for visual inspection and localization.
+
+---
+
+### 🔹 Libraries Used
+
+- OpenCV (cv2)  
+- NumPy  
+- Matplotlib  
+
+---
+
+#### Outcome
+
+After preprocessing, images are:
+
+- Correctly formatted and aligned  
+- Consistent in size and structure  
+- Focused on relevant regions  
+- Ready for visualization and machine learning tasks  
+
+---
+
+---
+
+## 🔹 8. Image & Video Data Preprocessing
+
+This notebook covers **fundamental preprocessing techniques for both images and videos**, which are essential for computer vision and deep learning applications.  
+The objective is to convert raw visual data into a clean, consistent, and usable format.
+
+---
+
+### 🔹 Key Operations
+
+#### Image Preprocessing
+- Color space conversion for correct visualization  
+- Image resizing to maintain uniform dimensions  
+- Basic transformations such as rotation and cropping  
+- Drawing shapes to highlight regions of interest  
+
+#### Video Preprocessing
+- Loaded video files and extracted frames  
+- Read videos frame-by-frame using OpenCV  
+- Applied image preprocessing techniques to video frames  
+- Displayed and analyzed processed frames  
+
+---
+
+### 🔹 Libraries Used
+
+- OpenCV (cv2)  
+- NumPy  
+- Matplotlib  
+
+---
+
+#### Outcome
+
+After preprocessing, image and video data are:
+
+- Properly formatted and standardized  
+- Frame-wise accessible for analysis  
+- Suitable for computer vision and deep learning models  
+- Ready for tasks such as:
+  - Video analysis  
+  - Object detection  
+  - Action recognition  
+
+---
+
+
+
 ## ✅ Final Outcome
 
-After completing the preprocessing pipeline, the dataset is:
+After completing the complete preprocessing pipeline, the project delivers **clean, consistent, and model-ready data** across multiple data types.
 
-- Clean and consistent  
-- Free from missing values  
-- Robust to outliers  
-- Fully numerical, scaled, and encoded  
-- Ready for:
-  - Exploratory Data Analysis (EDA)  
-  - Feature Engineering  
-  - Machine Learning Model Training  
+### Tabular Data
+- Cleaned and consistent dataset  
+- Missing values handled using **median (numerical)** and **mode (categorical)**  
+- Robust outlier treatment using IQR-based capping  
+- Fully numerical, scaled, and encoded features  
+- Optimized feature set through numerical and categorical feature selection  
+
+### Image & Video Data
+- Correct color space representation (BGR → RGB)  
+- Standardized image resizing and transformations  
+- Region-focused preprocessing through cropping and annotations  
+- Video data converted into frame-wise, analyzable format  
+
+---
+
+## 🚀 Ready For
+
+- Exploratory Data Analysis (EDA)  
+- Feature Engineering  
+- Machine Learning & Deep Learning Model Training  
+- Computer Vision tasks (Image & Video-based)  
 
 ---
 
 ## 📌 Key Highlights
 
 - Median imputation ensures robustness against outliers  
-- ColumnTransformer enables clean and scalable preprocessing  
-- Feature selection improves model performance and interpretability  
-- Workflow follows **industry-standard machine learning practices**
+- IQR-based outlier handling preserves real-world data patterns  
+- ColumnTransformer enables scalable and leakage-free preprocessing  
+- Feature selection improves model efficiency and interpretability  
+- Image and video preprocessing follow standard computer vision practices  
+- Workflow aligns with **industry-standard, production-ready ML pipelines**
+
+

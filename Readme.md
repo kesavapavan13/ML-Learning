@@ -1,529 +1,134 @@
-# 1.📘 Data Preprocessing – Handling Missing Values
+# 📘 Data Preprocessing Pipeline
 
-This notebook focuses on cleaning the dataset by identifying and handling missing values, which is a crucial step before performing analysis or building machine learning models.
-
----
-
-## 🔹 Key Steps Performed
-
-- 📂 Loaded the dataset and examined its structure and data types  
-- 🔍 Identified missing values across numerical and categorical features  
-- 📊 Analyzed the proportion and distribution of missing data  
-- 📈 Visualized missing values and data patterns using plots  
-- 🛠️ Applied appropriate handling techniques:
-  - ❌ Dropping rows or columns with excessive missing values  
-  - 🧮 Imputing missing values using **mean**, **median**, or **mode** based on feature type  
-- ✅ Verified the dataset after preprocessing to ensure completeness and consistency  
+This repository contains a complete **data preprocessing workflow** designed to prepare raw data for **exploratory data analysis (EDA)** and **machine learning model development**.  
+The pipeline focuses on improving data quality, consistency, and reliability through structured preprocessing steps.
 
 ---
 
-## 🔹 Libraries Used
+## 🔹 1. Handling Missing Values
 
-- 🐼 **Pandas** – data loading, manipulation, and missing value handling  
-- 🔢 **NumPy** – numerical computations and imputation support  
-- 📉 **Matplotlib** – basic data visualization  
-- 🌊 **Seaborn** – statistical and missing value visualizations  
+This step identifies and handles missing values present in the dataset to ensure completeness and consistency.
 
----
-
-This preprocessing step ensures a **clean and reliable dataset**, forming a strong foundation for further analysis and machine learning workflows.
-
-
-# 2. 📘 Data Preprocessing – Handling Outliers
-
-This notebook continues the data preprocessing process by focusing on identifying and handling outliers, which can significantly affect data analysis and machine learning model performance if left untreated.
-
----
-
-## 🔹 Key Steps Performed
-
-- 📂 Used the cleaned dataset obtained after missing value handling  
-- 🔢 Identified continuous numerical features suitable for outlier analysis  
-- 🚫 Excluded the binary target variable from outlier detection  
-- 📊 Detected outliers using boxplots based on the Interquartile Range (IQR)  
-- 🧮 Calculated lower and upper bounds using the IQR method  
-- 🛠️ Handled extreme values by capping them within acceptable limits  
-- ✅ Verified the dataset after outlier treatment to ensure stability and consistency  
-
----
-
-## 🔹 Libraries Used
-
-- 🐼 **Pandas** – data manipulation and outlier handling  
-- 🔢 **NumPy** – numerical computations  
-- 📉 **Matplotlib** – visualization of boxplots  
-- 🌊 **Seaborn** – statistical data visualizations  
-
----
-
-This preprocessing step helps minimize the impact of extreme values, resulting in a **cleaner and more reliable dataset** for further analysis and machine learning modeling.
-
-# 3.📘 Data Preprocessing
-
-This repository contains notebooks focused on **data preprocessing**, an essential step before performing exploratory data analysis or building machine learning models.  
-The preprocessing pipeline includes **handling missing values** and **outlier treatment** to ensure data quality and reliability.
-
----
-
-## 3.1 Handling Missing Values
-
-This notebook focuses on identifying and handling missing values present in the dataset.
-
-### 🔹 Key Steps Performed
-
+### Key Steps
 - Loaded the dataset and inspected its structure and data types  
 - Identified missing values in numerical and categorical features  
-- Analyzed the proportion and distribution of missing data  
-- Visualized missing values using appropriate plots  
-- Applied suitable handling techniques:
+- Analyzed the distribution and proportion of missing data  
+- Visualized missing values using heatmaps  
+- Applied appropriate handling techniques:
   - Dropped rows or columns with excessive missing values  
-  - Imputed missing values using **mean**, **median**, or **mode** based on feature type  
-- Verified the dataset to ensure completeness and consistency after preprocessing  
+  - Imputed missing **numerical values using the median**  
+  - Imputed missing **categorical values using the mode**  
+- Verified the dataset after preprocessing  
 
-### 🔹 Libraries Used
-
-- **Pandas** – data loading, manipulation, and missing value handling  
-- **NumPy** – numerical computations and imputation support  
-- **Matplotlib** – basic data visualization  
-- **Seaborn** – statistical and missing value visualizations  
+### Libraries Used
+- Pandas  
+- NumPy  
+- Matplotlib  
+- Seaborn  
 
 ---
 
-## 3.2 Handling Outliers
+## 🔹 2. Handling Outliers
 
-This notebook continues the preprocessing pipeline by focusing on identifying and handling outliers that may negatively impact model performance.
+This step focuses on detecting and treating extreme values that may negatively impact analysis or model performance.
 
-### 🔹 Key Steps Performed
-
-- Used the cleaned dataset obtained after missing value handling  
+### Key Steps
+- Used the cleaned dataset after missing value handling  
 - Selected continuous numerical features for outlier detection  
-- Excluded the binary target variable from outlier analysis  
-- Detected outliers using boxplots based on the **Interquartile Range (IQR)** method  
-- Calculated lower and upper bounds using IQR  
-- Handled extreme values by capping them within acceptable limits  
-- Verified dataset stability and consistency after outlier treatment  
+- Excluded the target variable from outlier analysis  
+- Detected outliers using **boxplots and the IQR method**  
+- Capped extreme values within acceptable bounds  
+- Verified data stability after outlier treatment  
 
-### 🔹 Libraries Used
-
-- **Pandas** – data manipulation and outlier handling  
-- **NumPy** – numerical computations  
-- **Matplotlib** – boxplot visualization  
-- **Seaborn** – statistical visualizations
-- **Sk-Learn** - Feature Scaling
+### Libraries Used
+- Pandas  
+- NumPy  
+- Matplotlib  
+- Seaborn  
 
 ---
 
-## ✅ Outcome
+## 🔹 3. Column Transformation
 
-After completing these preprocessing steps, the dataset becomes:
+This step prepares the dataset for machine learning by applying suitable transformations to numerical and categorical features.
+
+### Key Steps
+- Identified numerical and categorical features based on data types  
+- Applied **ColumnTransformer** to handle different feature types simultaneously  
+- Used:
+  - **StandardScaler / MinMaxScaler / RobustScaler** for numerical features  
+  - **OneHotEncoder / LabelEncoder / OrdinalEncoder** for categorical features  
+- Converted the transformed output into a model-ready DataFrame  
+
+### Libraries Used
+- Pandas  
+- NumPy  
+- Scikit-learn  
+
+---
+
+## 🔹 4. Column Transformation Using Functions
+
+This step improves code reusability and scalability by implementing preprocessing logic using functions.
+
+### Key Steps
+- Created reusable functions for:
+  - Identifying numerical and categorical columns  
+  - Scaling numerical features  
+  - Encoding categorical features  
+  - Applying transformations using ColumnTransformer  
+- Ensured consistent and leakage-free preprocessing  
+
+---
+
+## 🔹 5. Feature Selection – Numerical Features
+
+This step identifies the most informative numerical features contributing to the target variable.
+
+### Techniques Used
+- Correlation analysis  
+- Variance Threshold  
+- Mutual Information Regression  
+
+### Outcome
+- Reduced redundancy  
+- Retained important numerical features  
+- Improved model efficiency and interpretability  
+
+---
+
+## 🔹 6. Feature Selection – Categorical Features
+
+This step evaluates categorical features based on their relationship with the target variable.
+
+### Techniques Used
+- Chi-Square Test  
+- Mutual Information  
+
+### Outcome
+- Selected informative categorical features  
+- Reduced noise and irrelevant variables  
+
+---
+
+## ✅ Final Outcome
+
+After completing the preprocessing pipeline, the dataset is:
 
 - Clean and consistent  
 - Free from missing values  
-- Robust against extreme outliers  
-
-This prepares the data for **exploratory data analysis**, **feature engineering**, and **machine learning model development**.
-
-# 4. 📘 Data Preprocessing – Column Transformation
-
-This notebook focuses on **column-wise data preprocessing** using `ColumnTransformer`, which is a crucial step before building machine learning models.  
-It ensures that **numerical and categorical features are transformed appropriately and consistently**.
-
----
-
-## 🔹 Objective
-
-To prepare the dataset for machine learning by:
-- Separating numerical and categorical features
-- Applying suitable transformations to each feature type
-- Producing a clean, model-ready dataset
-
-This notebook is a continuation of the preprocessing pipeline after:
-- Handling missing values  
-- Treating outliers  
-
----
-
-## 🔹 Dataset Handling
-
-- 📂 Loaded the cleaned dataset after missing value and outlier treatment  
-- 🔍 Inspected dataset structure and data types  
-- 🧾 Identified feature categories based on data types  
-
----
-
-## 🔹 Feature Categorization
-
-- **Numerical Features**
-  - Identified using `select_dtypes(include=np.number)`
-  - These features are continuous and require scaling
-
-- **Categorical Features**
-  - Identified using `select_dtypes(include=object)`
-  - These features require encoding before model training
-
----
-
-## 🔹 Column Transformation Steps
-
-- Applied **`ColumnTransformer`** to handle different feature types simultaneously
-- Transformations used:
-  - 🔢 **StandardScaler**
-    - Applied to numerical (continuous) features
-    - Ensures features have zero mean and unit variance
-  - 🧩 **OneHotEncoder**
-    - Applied to categorical features
-    - Converts categorical values into numerical format
-    - `sparse_output=False` used to obtain a dense output
-
----
-
-## 🔹 Output
-
-- Combined transformed numerical and categorical features
-- Converted the transformed output into a new Pandas DataFrame
-- Generated a **fully transformed, model-ready dataset**
-
----
-
-## 🔹 Libraries Used
-
-- 🐼 **Pandas** – data loading and manipulation  
-- 🔢 **NumPy** – numerical operations  
-- 🤖 **Scikit-learn**
-  - `ColumnTransformer` – column-wise preprocessing
-  - `StandardScaler`,`Min-Max Scalar`,`Robust Scalar` – feature scaling (Numerical feature Scaling)
-  - `OneHotEncoder`,`Label Encoder`,`Ordinal Encoder`,`frequency/ Count Encoder` – categorical encoding
- 
-
----
-
-## ✅ Outcome
-
-After column transformation, the dataset becomes:
-
-- Fully numerical  
-- Scaled and encoded  
-- Consistent across feature types  
+- Robust to outliers  
+- Fully numerical, scaled, and encoded  
 - Ready for:
-  - Exploratory Data Analysis (EDA)
-  - Feature Engineering
-  - Machine Learning Model Training
+  - Exploratory Data Analysis (EDA)  
+  - Feature Engineering  
+  - Machine Learning Model Training  
 
 ---
 
-## 📌 Note
+## 📌 Key Highlights
 
-Using `ColumnTransformer` ensures:
-- Clean preprocessing logic
-- No data leakage
-- Easy integration into machine learning pipelines
-
-This makes the preprocessing workflow **robust, reproducible, and production-ready**.
-
-
-# 5.📘 Data Preprocessing – Column Transformation Using Functions
-
-This notebook extends the data preprocessing pipeline by implementing **column-wise feature transformations using reusable functions**.  
-It follows earlier preprocessing steps such as **missing value handling** and **outlier treatment**, ensuring a clean and structured workflow before model training.
-
----
-
-## 🔹 Objective
-
-To design a **modular, reusable, and scalable preprocessing approach** by:
-- Separating numerical and categorical features
-- Applying appropriate transformations using functions
-- Integrating all transformations using `ColumnTransformer`
-- Producing a fully numerical, model-ready dataset
-
----
-
-## 🔹 Dataset Preparation (Continuity)
-
-- 📂 Used the cleaned dataset obtained after:
-  - Handling missing values  
-  - Treating outliers  
-- 🔍 Inspected dataset structure, shape, and data types  
-- 🧾 Ensured only relevant features were passed for transformation  
-
----
-
-## 🔹 Feature Categorization
-
-- **Numerical (Continuous) Features**
-  - Identified using `select_dtypes(include=np.number)`
-  - Scaled to ensure uniform feature contribution
-
-- **Categorical Features**
-  - Identified using `select_dtypes(include=object)`
-  - Encoded based on feature semantics
-
----
-
-## 🔹 Functional Preprocessing Design ⭐
-
-To improve code maintainability and reusability, preprocessing logic was implemented using **custom functions**, including:
-- Function to identify numerical and categorical columns  
-- Function to apply scaling on numerical features  
-- Function to apply appropriate encoding on categorical features  
-- Function to construct and apply `ColumnTransformer`
-
-This approach aligns with **industry-level ML preprocessing standards**.
-
----
-
-## 🔹 Encoding Techniques Applied
-
-Different encoding strategies were applied based on the nature of categorical features:
-
-- **Label Encoder**
-  - Used for binary or limited nominal categorical features
-
-- **Ordinal Encoder**
-  - Used for features with inherent order
-
-- **OneHotEncoder**
-  - Used for nominal categorical features
-  - `sparse_output=False` to generate dense output
-
----
-
-## 🔹 Column Transformation
-
-- Combined all preprocessing steps using **`ColumnTransformer`**
-- Applied transformations in a single pipeline using `fit_transform()`
-- Ensured:
-  - No data leakage  
-  - Consistent preprocessing  
-
----
-
-## 🔹 Output
-
-- Transformed data converted into a Pandas DataFrame
-- Final dataset becomes:
-  - Fully numerical  
-  - Scaled and encoded  
-  - Clean and consistent  
-  - Ready for machine learning models  
-
----
-
-## 🔹 Libraries Used
-
-- 🐼 **Pandas** – data loading and manipulation  
-- 🔢 **NumPy** – numerical operations  
-- 🤖 **Scikit-learn**
-  - `ColumnTransformer`
-  - `StandardScaler`
-  - `LabelEncoder`
-  - `OrdinalEncoder`
-  - `OneHotEncoder`
-
----
-
-## ✅ Outcome
-
-After completing this step, the preprocessing pipeline becomes:
-
-- Modular and reusable  
-- Production-ready  
-- Robust against data inconsistencies  
-- Suitable for:
-  - Exploratory Data Analysis (EDA)
-  - Feature Engineering
-  - Machine Learning Model Training
-
----
-
-## 📌 Note
-
-Implementing preprocessing using **functions + ColumnTransformer**:
-- Improves code clarity
-- Enhances reusability
-- Simplifies pipeline integration
-- Reflects real-world ML workflow practices
-
-# 6. 📘 Data Preprocessing – Feature Selection (Numerical Features)
-
-This notebook focuses on **feature selection for numerical variables**, an essential step to identify the most relevant features that contribute to the target variable and improve machine learning model performance.
-
-Feature selection helps in:
-- Reducing dimensionality  
-- Removing redundant or less informative features  
-- Improving model efficiency and interpretability  
-
-This step is performed **after completing the preprocessing pipeline**, including:
-- Handling missing values  
-- Outlier treatment  
-- Column transformation  
-
----
-
-## 🔹 Objective
-
-To identify and retain the most informative **numerical features** using statistical and information-theoretic techniques, ensuring an optimized dataset for model training.
-
----
-
-## 🔹 Dataset Preparation
-
-- 📂 Used the fully cleaned and transformed dataset obtained after:
-  - Missing value handling  
-  - Outlier treatment  
-  - Column transformation  
-- 🔍 Separated:
-  - Independent variables (**X**)  
-  - Target variable (**y**)  
-- 🧾 Considered only numerical features for feature selection  
-
----
-
-## 🔹 Feature Selection Techniques Applied
-
-### 6.1 Correlation Analysis
-
-- Computed the correlation matrix for numerical features  
-- Visualized correlations using a heatmap  
-- Analyzed the strength and direction of linear relationships between features and the target variable  
-
-📌 Helps in identifying:
-- Strongly related features  
-- Multicollinearity and redundant variables  
-
----
-
-### 6.2 Variance Threshold (Filter Method)
-
-- Applied **VarianceThreshold** to identify low-variance features  
-- Removed features with zero or near-zero variance  
-
-📌 Observation:
-- All numerical features exhibited sufficient variance and were retained  
-
----
-
-### 6.3 Mutual Information Regression
-
-- Computed **Mutual Information (MI)** scores between numerical features and the target variable  
-- Ranked features based on their MI scores  
-
-📌 Why Mutual Information?
-- Captures both **linear and non-linear relationships**  
-- More flexible and informative than correlation-based methods  
-
----
-
-## 🔹 Output
-
-- Generated a ranked list of numerical features based on importance  
-- Identified the most informative features for model training  
-- Reduced redundancy and noise in the dataset  
-
----
-
-## ✅ Outcome
-
-After numerical feature selection, the dataset becomes:
-
-- Optimized with informative numerical features  
-- Reduced in dimensionality  
-- Less redundant and noise-free  
-- Ready for efficient machine learning model training  
-
----
-
-## 📌 Note
-
-Feature selection improves:
-
-- Model generalization  
-- Training efficiency  
-- Interpretability  
-
-This completes the **feature preparation stage of the preprocessing pipeline**, making the dataset fully ready for model development.
-
----
-
-# 7.📘 Feature Selection – Categorical Features
-
-This notebook focuses on **feature selection for categorical variables**, which is an important step before training machine learning models.  
-The goal is to identify categorical features that have a strong relationship with the target variable and contribute meaningfully to model performance.
-
----
-
-## 🔹 Objective
-
-To evaluate and select the most relevant **categorical features** using statistical and information-theoretic techniques.
-
-Feature selection helps in:
-- Reducing irrelevant or redundant features  
-- Improving model efficiency  
-- Enhancing interpretability  
-
----
-
-## 🔹 Dataset Preparation
-
-- Loaded the preprocessed dataset  
-- Separated:
-  - Independent variables (**X**)  
-  - Target variable (**y**)  
-- Considered only **categorical features** for feature selection  
-- Converted categorical features into numerical form using appropriate encoding  
-- Applied feature scaling to ensure compatibility with statistical tests  
-
----
-
-## 🔹 Feature Selection Techniques Applied
-
-### 7.1 Chi-Square Test
-
-- Applied the **Chi-Square test** to measure statistical dependency between categorical features and the target variable  
-- Requires non-negative feature values, ensured using feature scaling  
-- Higher Chi-Square scores indicate stronger dependence  
-
-📌 Used to identify features that are significantly associated with the target variable.
-
----
-
-### 7.2 Mutual Information
-
-- Applied **Mutual Information** to measure how much information a categorical feature provides about the target variable  
-- Captures both **linear and non-linear relationships**  
-- Does not assume independence or linearity  
-
-📌 Features with higher Mutual Information scores are more informative for prediction.
-
----
-
-## 🔹 Output
-
-- Generated feature importance scores for categorical features  
-- Ranked features based on:
-  - Chi-Square scores  
-  - Mutual Information scores  
-- Identified the most relevant categorical features for machine learning models  
-
----
-
-## ✅ Outcome
-
-After feature selection, the dataset contains:
-
-- Informative categorical features  
-- Reduced noise and redundancy  
-- Improved suitability for machine learning model training  
-
----
-
-## 📌 Key Takeaways
-
-- Chi-Square test evaluates statistical dependence  
-- Mutual Information captures both linear and non-linear relationships  
+- Median imputation ensures robustness against outliers  
+- ColumnTransformer enables clean and scalable preprocessing  
 - Feature selection improves model performance and interpretability  
-
----
-
-✨ This notebook provides a clear and effective approach to **categorical feature selection** in machine learning workflows.
-
+- Workflow follows **industry-standard machine learning practices**

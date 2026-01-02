@@ -1,4 +1,4 @@
-# 📘 Data Preprocessing Pipeline
+# 📘 Data Preprocessing
 
 This repository contains a complete **data preprocessing workflow** designed to prepare raw data for **exploratory data analysis (EDA)** and **machine learning model development**.  
 The pipeline focuses on improving data quality, consistency, and reliability through structured preprocessing steps.
@@ -330,6 +330,7 @@ After completing the complete preprocessing pipeline, the project delivers **cle
 - Feature selection improves model efficiency and interpretability  
 - Image and video preprocessing follow standard computer vision practices  
 - Workflow aligns with **industry-standard, production-ready ML pipelines**
+
 
 
 

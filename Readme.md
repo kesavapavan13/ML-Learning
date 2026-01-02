@@ -205,6 +205,93 @@ After preprocessing, image and video data are:
 
 ---
 
+---
+
+## 🔹 9. Text Data Preprocessing
+
+This notebook focuses on **preprocessing textual data** to make it suitable for natural language processing (NLP) and machine learning models.  
+The goal is to clean raw text, reduce noise, and standardize content for effective analysis.
+
+---
+
+### 🔹 Key Operations
+
+- Converted text to lowercase for consistency  
+- Removed punctuation, special characters, and unnecessary symbols  
+- Eliminated extra whitespaces  
+- Tokenized text into individual words  
+- Removed stopwords to retain meaningful terms  
+- Applied stemming / lemmatization to normalize words  
+
+---
+
+### 🔹 Libraries Used
+
+- Pandas  
+- NumPy  
+- NLTK / spaCy (for NLP operations)  
+- Regular Expressions (re)  
+
+---
+
+#### Outcome
+
+After text preprocessing, the textual data becomes:
+
+- Clean and noise-free  
+- Standardized and normalized  
+- More informative and meaningful  
+- Ready for:
+  - Text analysis  
+  - Feature extraction
+  - NLP and machine learning model training  
+
+---
+---
+
+## 🔹 10. Text Data Preprocessing (On Dataset)
+
+This notebook applies **text preprocessing techniques directly on a real-world dataset** to prepare textual features for NLP and machine learning tasks.  
+The focus is on transforming raw text into a clean, structured, and analyzable format.
+
+---
+
+### 🔹 Key Operations
+
+- Loaded the text dataset and inspected structure  
+- Converted text to lowercase for uniformity  
+- Removed punctuation, special characters, and numbers  
+- Eliminated extra whitespaces and noise  
+- Tokenized text into words  
+- Removed stopwords to retain meaningful information  
+- Applied stemming / lemmatization for word normalization  
+
+---
+
+### 🔹 Libraries Used
+
+- Pandas  
+- NumPy  
+- NLTK / spaCy  
+- Regular Expressions (re)  
+
+---
+
+#### Outcome
+
+After preprocessing, the text dataset becomes:
+
+- Clean and standardized  
+- Noise-free and normalized  
+- Suitable for feature extraction techniques  
+- Ready for:
+  - Text analytics  
+  - NLP   
+  - Machine learning model training  
+
+---
+
+
 
 
 ## ✅ Final Outcome
@@ -243,5 +330,6 @@ After completing the complete preprocessing pipeline, the project delivers **cle
 - Feature selection improves model efficiency and interpretability  
 - Image and video preprocessing follow standard computer vision practices  
 - Workflow aligns with **industry-standard, production-ready ML pipelines**
+
 
 

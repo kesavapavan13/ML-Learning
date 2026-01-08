@@ -291,25 +291,129 @@ After preprocessing, the text dataset becomes:
 
 ---
 
+---
+
+## 🔹 11. Text Vectorization (Using Raw Text)
+
+This notebook focuses on converting **individual text samples** into numerical representations using standard **text vectorization techniques**.  
+The objective is to transform cleaned text into machine-readable format for NLP and machine learning models.
+
+---
+
+### 🔹 Key Operations
+
+- Preprocessed raw text (lowercasing, cleaning, tokenization)  
+- Converted text into numerical vectors using:
+  - **Count Vectorization**
+  - **TF-IDF Vectorization**
+- Analyzed vocabulary size and feature representation  
+- Generated vectorized output suitable for model input  
+
+---
+
+### 🔹 Libraries Used
+
+- Pandas  
+- NumPy  
+- Scikit-learn (`CountVectorizer`, `TfidfVectorizer`)  
+
+---
+
+#### Outcome
+
+After vectorization, raw text becomes:
+
+- Numerical and structured  
+- Suitable for similarity analysis and NLP models  
+- Ready for:
+  - Text classification  
+  - Sentiment analysis  
+  - Information retrieval  
+
+---
+
+## 🔹 12. Text Vectorization (Using Dataset)
+
+This notebook applies **text vectorization techniques on a full dataset**, transforming textual columns into numerical feature matrices suitable for machine learning pipelines.
+
+---
+
+### 🔹 Key Operations
+
+- Loaded and inspected the text dataset  
+- Applied text preprocessing on dataset columns  
+- Converted text features into numerical form using:
+  - **Count Vectorizer**
+  - **TF-IDF Vectorizer**
+- Generated high-dimensional feature matrices  
+- Prepared vectorized data for downstream modeling  
+
+---
+
+### 🔹 Libraries Used
+
+- Pandas  
+- NumPy  
+- Scikit-learn (`CountVectorizer`, `TfidfVectorizer`)  
+
+---
+
+#### Outcome
+
+After dataset-level vectorization, the data becomes:
+
+- Fully numerical and model-compatible  
+- Scalable for large text corpora  
+- Ready for:
+  - NLP pipelines  
+  - Machine learning model training  
+  - Feature engineering and evaluation  
+
+---
+
 
 
 
 ## ✅ Final Outcome
 
-After completing the complete preprocessing pipeline, the project delivers **clean, consistent, and model-ready data** across multiple data types.
+After completing the **end-to-end preprocessing pipeline**, the project delivers **clean, consistent, and fully model-ready data** across **tabular, image, video, and text domains**.
 
-### Tabular Data
+---
+
+### 📊 Tabular Data
 - Cleaned and consistent dataset  
 - Missing values handled using **median (numerical)** and **mode (categorical)**  
-- Robust outlier treatment using IQR-based capping  
+- Robust outlier treatment using **IQR-based capping**  
 - Fully numerical, scaled, and encoded features  
-- Optimized feature set through numerical and categorical feature selection  
+- Optimized feature set using **numerical and categorical feature selection techniques**
 
-### Image & Video Data
-- Correct color space representation (BGR → RGB)  
+---
+
+### 🖼️ Image & 🎥 Video Data
+- Correct color space conversion (**BGR → RGB**)  
 - Standardized image resizing and transformations  
-- Region-focused preprocessing through cropping and annotations  
-- Video data converted into frame-wise, analyzable format  
+- Region-focused preprocessing using cropping and annotations  
+- Video data processed frame-by-frame for analysis  
+- Visual data prepared for computer vision workflows  
+
+---
+
+### 📝 Text Data
+- Raw and dataset-based text cleaned and standardized  
+- Noise removal (punctuation, special characters, stopwords)  
+- Tokenization and normalization using stemming / lemmatization  
+- Text prepared for NLP pipelines and feature extraction  
+
+---
+
+### 🔡 Text Vectorization
+- Converted text into numerical representations using:
+  - **Count Vectorization**
+  - **TF-IDF Vectorization**
+- Applied on both:
+  - Individual text samples  
+  - Full text datasets  
+- Generated scalable, model-compatible feature matrices  
 
 ---
 
@@ -317,7 +421,9 @@ After completing the complete preprocessing pipeline, the project delivers **cle
 
 - Exploratory Data Analysis (EDA)  
 - Feature Engineering  
-- Machine Learning & Deep Learning Model Training  
+- Machine Learning Model Training  
+- Deep Learning Pipelines  
+- Natural Language Processing (NLP) tasks  
 - Computer Vision tasks (Image & Video-based)  
 
 ---
@@ -328,8 +434,11 @@ After completing the complete preprocessing pipeline, the project delivers **cle
 - IQR-based outlier handling preserves real-world data patterns  
 - ColumnTransformer enables scalable and leakage-free preprocessing  
 - Feature selection improves model efficiency and interpretability  
-- Image and video preprocessing follow standard computer vision practices  
-- Workflow aligns with **industry-standard, production-ready ML pipelines**
+- Text preprocessing and vectorization follow NLP best practices  
+- Image and video preprocessing align with computer vision standards  
+- Workflow reflects **industry-standard, production-ready ML pipelines**
+
+
 
 
 
